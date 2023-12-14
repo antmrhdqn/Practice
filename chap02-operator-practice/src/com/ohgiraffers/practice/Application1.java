@@ -18,6 +18,8 @@ public class Application1 {
         int dotori = 7;
         String result = (dotori % 2 == 1) ? "홀이군!" : "짝이군!";
         System.out.println(result);
+
+        (dotori )
     }
 
 }

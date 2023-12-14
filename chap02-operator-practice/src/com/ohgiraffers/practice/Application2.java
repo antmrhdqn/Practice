@@ -15,6 +15,9 @@ public class Application2 {
          * 예2) 10 입력 ----------> 출력결과) 삐빅! 어린이 입니다~
          * 예3) 28 입력 ----------> 출력결과) 삡! 성인 입니다~
          * */
+        int age = 28;
+        String result = (age>19)? "삡! 성인 입니다~" : (age > 13)? "삐빅! 청소년 입니다~" : "삐빅! 어린이 입니다~";
+        System.out.println(result);
     }
 
 }

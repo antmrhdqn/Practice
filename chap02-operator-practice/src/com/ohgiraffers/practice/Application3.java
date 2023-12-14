@@ -15,7 +15,7 @@ public class Application3 {
          * 정상!!!!!
          * */
 
-        int weight = 7;
+        int weight = 13;
         String result = (weight > 12)? "비만" : "정상";
         System.out.println(result);
     }
