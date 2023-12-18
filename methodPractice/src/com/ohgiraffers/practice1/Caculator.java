@@ -1,6 +1,6 @@
 package com.ohgiraffers.practice1;
 
-public class Calculator {
+public class Caculator {
 
     public void checkMethod() {
         System.out.println("메소드 호출 확인");

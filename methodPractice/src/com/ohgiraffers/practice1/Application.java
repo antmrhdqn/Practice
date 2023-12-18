@@ -6,7 +6,7 @@ public class Application {
         int b = 20;
         int c = 5;
 
-        Calculator calc = new Calculator();
+        Caculator calc = new Caculator();
         calc.checkMethod();
         System.out.println("1부터 10까지의 합 : " + calc.sum1to10());
         calc.checkMaxNumber(a, b);
