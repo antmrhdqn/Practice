@@ -1,4 +1,4 @@
-package com.ohgiraffers.practice;
+package com.ohgiraffers.practice1;
 
 public class Application4 {
 
