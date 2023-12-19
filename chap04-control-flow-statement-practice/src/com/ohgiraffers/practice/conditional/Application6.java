@@ -1,5 +1,7 @@
 package com.ohgiraffers.practice.conditional;
 
+import java.util.Scanner;
+
 public class Application6 {
 
     public static void main(String[] args) {
@@ -24,6 +26,27 @@ public class Application6 {
          * 도토리탕후루의 가격은 5000원 입니다.
          * */
 
+        Scanner sc = new Scanner(System.in);
+        System.out.print("어떤 간식을 주문하시겠어요? ");
+        String menu = sc.nextLine();
+
+        if (menu.equals("캬라멜팝콘")) {
+            int price = 15500;
+            System.out.println(menu + "의 가격은 " + price + "원 입니다.");
+        } else if (menu.equals("츄로스")) {
+            int price = 3000;
+            System.out.println(menu + "의 가격은 " + price + "원 입니다.");
+        } else if (menu.equals("통감자")) {
+            int price = 2000;
+            System.out.println(menu + "의 가격은 " + price + "원 입니다.");
+        } else if (menu.equals("도토리탕후루")) {
+            int price = 5000;
+            System.out.println(menu + "의 가격은 " + price + "원 입니다.");
+        } else {
+            System.out.println("해당 상품이 판매하지 않습니다.");
+        }
+
+        System.out.println(menu);
     }
 
 }

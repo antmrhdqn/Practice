@@ -1,4 +1,4 @@
-package com.ohgiraffers.practice1;
+package com.ohgiraffers.practice;
 
 import java.util.Scanner;
 
