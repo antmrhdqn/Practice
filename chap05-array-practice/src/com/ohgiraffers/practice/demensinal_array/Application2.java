@@ -1,5 +1,7 @@
 package com.ohgiraffers.practice.demensinal_array;
 
+import java.util.Scanner;
+
 public class Application2 {
 
     public static void main(String[] args) {
@@ -23,6 +25,48 @@ public class Application2 {
          * W H J X
          * W S S J
          * */
+
+        Scanner sc = new Scanner(System.in);
+        int width;
+        int length;
+
+        while (true) {
+            System.out.print("가로 행의 수를 입력하세요 : ");
+            width = sc.nextInt();
+
+            if (width < 1 || width > 10) {
+                System.out.println("반드시 1~10까지의 정수를 입력해야 합니다. 다시 입력하세요.");
+
+            } else {
+                break;
+            }
+        }
+
+        while (true) {
+            System.out.print("세로 행의 수를 입력하세요 : ");
+            length = sc.nextInt();
+
+            if (length < 1 || length > 10) {
+                System.out.println("반드시 1~10까지의 정수를 입력해야 합니다. 다시 입력하세요.");
+            } else {
+                break;
+            }
+        }
+
+        int abc = 65;
+        char[][] arr = new char[width][length];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = (char) abc;
+                abc++;
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.println(arr[i][j]);
+            }
+        }
 
     }
 
