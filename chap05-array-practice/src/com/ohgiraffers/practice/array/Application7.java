@@ -1,7 +1,5 @@
 package com.ohgiraffers.practice.array;
 
-import java.util.Scanner;
-
 public class Application7 {
 
     public static void main(String[] args) {
@@ -30,74 +28,6 @@ public class Application7 {
          * 4자리 숫자를 입력하세요 : 7416
          * 정답입니다.
          * */
-
-        /* 길이 4의 정수 배열 만들고 0~9 사이의 중복되지 않는 난수 저장하기 */
-        int[] randomNUm = new int[4];
-
-        for (int i = 0; i < randomNUm.length; i++) {
-            randomNUm[i] = (int) (Math.random() * 10);
-            for (int j = 0; j < i; j++) {
-                if (randomNUm[i] == randomNUm[j]) {
-                    randomNUm[i] = (int) (Math.random() * 10);
-                }
-            }
-        }
-
-        /* 난수 배열 확인 */
-        for (int check : randomNUm) {
-            System.out.print(check);
-        }
-
-        /* 4자리 숫자를 입력받아 볼, 스트라이크 카운트, 10번의 기회 */
-        Scanner sc = new Scanner(System.in);
-        System.out.print("4자리 숫자를 입력해주세요 : ");
-        String inputNum = sc.nextLine();
-        int[] inputArr = new int[4];
-        for (int i = 0; i < 4; i++) {
-            inputArr[i] = (int) inputNum.charAt(i);
-        }
-        System.out.println(inputArr);
-//        System.out.print("4자리 숫자를 입력해주세요 : ");
-//        int inputNum1 = sc.nextInt();
-//        sc.nextLine();
-//        System.out.print("4자리 숫자를 입력해주세요 : ");
-//        int inputNum2 = sc.nextInt();
-//        sc.nextLine();
-//        System.out.print("4자리 숫자를 입력해주세요 : ");
-//        int inputNum3 = sc.nextInt();
-//        sc.nextLine();
-//        System.out.print("4자리 숫자를 입력해주세요 : ");
-//        int inputNum4 = sc.nextInt();
-//        sc.nextLine();
-//        int[] inputArr = {inputNum1, inputNum2, inputNum3, inputNum4};
-
-
-        int count = 10;
-        int strike = 0;
-        int ball = 0;
-
-
-        while (true) {
-
-            if (count > 0) {
-                for (int i = 0; i < randomNUm.length; i++) {
-                    for (int j = 0; j <= i; j++) {
-                        if (randomNUm[i] == inputArr[j]) {
-                            strike += 1;
-                        }
-                    }
-                }
-            } else {
-                break;
-            }
-
-
-
-
-        }
-
-
-
 
     }
 

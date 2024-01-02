@@ -16,21 +16,6 @@ public class Application1 {
          * 단, 출력물의 줄맞춤은 신경쓰지 말고 풀어보세요.
          * */
 
-        int numPluse = 1;
-        int[][] num = new int[3][4];
-        for (int i = 0; i < num.length; i++) {
-            for (int j = 0; j < num[i].length; j++) {
-                num[i][j] = numPluse++;
-            }
-        }
-
-        for (int i = 0; i < num.length; i++) {
-            for (int j = 0; j < num[i].length; j++) {
-                System.out.println(num[i][j]);
-            }
-        }
-
-
     }
 
 }
