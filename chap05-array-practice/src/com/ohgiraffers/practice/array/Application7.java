@@ -1,5 +1,8 @@
 package com.ohgiraffers.practice.array;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Application7 {
 
     public static void main(String[] args) {
@@ -29,6 +32,87 @@ public class Application7 {
          * 정답입니다.
          * */
 
+
+        /* 길이 4의 정수 배열 생성 */
+        int[] num = new int[4];
+
+        /* 각 인덱스에 0~9사이의 중복되지 않는 난수 저장 */
+
+        for (int i = 0; i < num.length; i++) {
+            num[i] = (int) (Math.random() * 10);
+            for (int j = 0; j < i; j++) {
+                if (num[i] == num[j]) {
+                    i--;
+                    break;
+                }
+            }
+        }
+
+        /*  4자리 숫자를 사용자에게 입력 받아 스트라이크, 볼 등의 힌트를 주며 4자리 난수 숫자 맞추기 */
+
+        /* 숫자를 입력받을 4자리 정수 배열*/
+/*        Scanner sc = new Scanner(System.in);
+        int[] inputNum = new int[4];
+        for (int i = 0; i < inputNum.length; i++) {
+            inputNum[i] = sc.nextInt();
+        }*/
+
+        /* 스트라이크, 볼 체크 */
+/*        int strike = 0;
+        int ball = 0;
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] == inputNum[i]) {
+                strike += 1;
+            } else {
+                for (int j = 0; j < num.length; j++) {
+                    if (num[i] == inputNum[j]) {
+                        ball += 1;
+                    }
+                }
+
+            }
+        }*/
+
+        /* 기회는 총 10번이며, 10번 이내에 맞추는 경우 "정답입니다." 출력 후 게임을 종료
+         *  10번의 기회가 모두 소진되면 "10번의 기회를 모두 소진하셨습니다. 프로그램을 종료합니다."를 출력 후 종료 */
+        int count = 10;
+
+
+        if (count > 0) {
+            System.out.println("count");
+            Scanner sc = new Scanner(System.in);
+            int[] inputNum = new int[4];
+            for (; count > 0; count--) {
+                for (int i = 0; i < inputNum.length; i++) {
+                    inputNum[i] = sc.nextInt();
+                }
+
+                int strike = 0;
+                int ball = 0;
+                for (int i = 0; i < num.length; i++) {
+                    if (num[i] == inputNum[i]) {
+                        strike += 1;
+                    } else {
+                        for (int j = 0; j < num.length; j++) {
+                            if (num[i] == inputNum[j]) {
+                                ball += 1;
+                            }
+                        }
+                    }
+                }
+                if (strike == 4) {
+                    System.out.println("정답입니다.");
+                    break;
+                }
+            }
+
+        } else {
+            System.out.println("10번의 기회를 모두 소진하셨습니다. 프로그램을 종료합니다.");
+        }
     }
 
+
 }
+
+
+
