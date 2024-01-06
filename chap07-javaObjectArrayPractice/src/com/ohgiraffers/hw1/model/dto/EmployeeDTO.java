@@ -17,12 +17,13 @@ public class EmployeeDTO {
 
     }
 
-    public EmployeeDTO(int empNO, String empName, int age, char gender, String phone) {
+    public EmployeeDTO(int empNO, String empName, int age, char gender, String phone, String adress) {
         this.empNo = empNO;
         this.empName = empName;
         this.age = age;
         this.gender = gender;
         this.phone = phone;
+        this.address = adress;
     }
 
     public EmployeeDTO(int empNo, String empName, String dept, String job, int age, char gender, int salary, double bonusPoint, String phone, String address) {
@@ -119,18 +120,7 @@ public class EmployeeDTO {
     }
 
     public String information() {
-        return "EmployeeDTO{" +
-                "empNo=" + empNo +
-                ", empName='" + empName + '\'' +
-                ", dept='" + dept + '\'' +
-                ", job='" + job + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
-                ", salary=" + salary +
-                ", bonusPoint=" + bonusPoint +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return this.empNo + ", " + this.empName + ", " + this.dept + ", " + this.job + ", " + this.age + ", " + this.gender + ", " + this.salary + ", " + this.bonusPoint + ", " + this.phone + ", " + this.address;
     }
 
 }

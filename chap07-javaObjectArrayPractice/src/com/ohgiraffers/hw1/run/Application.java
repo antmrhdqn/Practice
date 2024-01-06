@@ -9,8 +9,15 @@ public class Application {
         EmployeeDTO[] e = new EmployeeDTO[3];
 
         e[0] = new EmployeeDTO();
-        e[1] = new EmployeeDTO(1,"홍길동", 19, 'M', "010-2222-3333");
-        e[2] = new EmployeeDTO(2, "강말순", "교육부", "강사", 20, 'F', 1000000, 0.01, "01011112222", "tjdnf");
+        e[1] = new EmployeeDTO(1, "홍길동", 19, 'M', "01022223333", "서울 잠실");
+        e[2] = new EmployeeDTO(2, "강말순", "교육부", "강사", 20, 'F', 1000000, 0.01, "01011112222", "서울 마곡");
+
+        System.out.println("e[0] : " + e[0].information());
+        System.out.println("e[1] : " + e[1].information());
+        System.out.println("e[2] : " + e[2].information());
+
+        System.out.println("===============================================================================");
+
 
         e[0].setEmpNo(0);
         e[0].setEmpName("김말똥");
@@ -28,12 +35,25 @@ public class Application {
         e[1].setSalary(4000000);
         e[1].setBonusPoint(0.3);
 
-        System.out.println(e[0].information());
-        System.out.println(e[2].information());
 
+        System.out.println("e[0] : " + e[0].information());
+        System.out.println("e[1] : " + e[1].information());
 
+        System.out.println("========================================================");
 
+        int total = 0;
+        for (int i = 0; i < e.length; i++) {
+            int year = (int) (e[i].getSalary() + (e[i].getSalary() * e[i].getBonusPoint())) * 12;
+            System.out.println(e[i].getEmpName() + "의 연봉 : " + year + "원");
+            total += year;
+        }
+
+        System.out.println("========================================================");
+        System.out.println("직원들의 연봉의 평균 : " + total / 3 + "원");
 
     }
 
+
 }
+
+
