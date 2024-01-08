@@ -64,7 +64,7 @@ public class TicketingManager {
         // 출발역을 제외한 나머지 역을 remainingStations에 넣는 부분을 추가해야 합니다.
 
         while (true) {
-            System.out.println("============= 현재 예매 가능한 도착역 ============");
+            System.out.println("=============== 선택 가능한 도착역 ==============");
             for (int i = 0; i < remainingStations.length; i++) {
                 System.out.println((i + 1) + ". " + remainingStations[i]);
             }
