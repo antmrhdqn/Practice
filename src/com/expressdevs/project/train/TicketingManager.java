@@ -28,6 +28,7 @@ public class TicketingManager {
 
             System.out.println("============= 현재 예매 가능한 출박역 ============");
             System.out.println("1. 수서\n2. 부산\n3. 동대구\n4. 대전\n5. 동탄");
+            System.out.println("==============================================");
             System.out.print("출발역을 선택하세요 (번호 입력) : ");
             int startStationIndex = sc.nextInt();
 
@@ -68,6 +69,7 @@ public class TicketingManager {
             for (int i = 0; i < remainingStations.length; i++) {
                 System.out.println((i + 1) + ". " + remainingStations[i]);
             }
+            System.out.println("==============================================");
             System.out.print("도착역을 선택하세요  : ");
             int endStationIndex = sc.nextInt();
             if (endStationIndex < 1 || endStationIndex > 4) {
@@ -87,7 +89,7 @@ public class TicketingManager {
         while (true) {
             System.out.println("============= 현재 예매 가능한 시간 ============");
             System.out.println("1. 8:30\n2. 11:30\n3. 14:30\n4. 17:30\n5. 20:30");
-            System.out.println();
+            System.out.println("==============================================");
             System.out.print("시간을 입력하세요 (번호 입력) : ");
             int inputTimeNo = sc.nextInt();
 
