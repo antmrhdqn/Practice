@@ -15,24 +15,77 @@ public class BookMenu {
     }
 
     public void mainMenu() {
-
+        while (true) {
+            System.out.println("1. 새 도서 추가");
+            System.out.println("2. 도서정보 정렬 후 출력");
+            System.out.println("3. 도서 삭제");
+            System.out.println("4. 도서 검색 출력");
+            System.out.println("5. 전체 출력");
+            System.out.println("6. 끝내기");
+            int inputNum = sc.nextInt();
+            switch (inputNum) {
+                case 1:
+                    bm.addBook(inputBook());
+                    break;
+                case 2:
+                    bm.printBookList(selectSortedBook());
+                    break;
+                case 3:
+                    bm.deleteBook(inputBookNo());
+                    break;
+//                case 4:
+//                    bm.searchBook(inputBookTitle());
+//                    break;
+                case 5:
+                    bm.displayAll();
+                    break;
+                case 6:
+                    return;
+            }
+        }
     }
 
-    public BookDTO inputBookDTO() {
+    public BookDTO inputBook() {
+        System.out.print("도서 장르 (1: 인문 / 2: 자연과학 / 3: 의료 / 4: 기타)");
+        int bookCategory = sc.nextInt();
+        sc.nextLine();
 
+        System.out.print("도서 저자 : ");
+        String bookAuthor = sc.nextLine();
+        return new BookDTO(inputBookNo(), bookCategory, inputBookTitle(), bookAuthor);
     }
 
-    public String inputBookNo() {
-
+    public int inputBookNo() {
+        System.out.print(" 도서 번호 : ");
+        int bookNo = sc.nextInt();
+        sc.nextLine();
+        return bookNo;
     }
 
     public String inputBookTitle() {
-
+        System.out.print("도서 제목 : ");
+        String bookTitle = sc.nextLine();
+        return bookTitle;
     }
 
     public List<BookDTO> selectSortedBook() {
+        while (true) {
+            System.out.println("1. 도서번호(ISBN)으로 오름차순정렬");
+            System.out.println("2. 도서번호(ISBN)으로 내림차순정렬");
+            System.out.println("3. 책 제목으로 오름차순 정렬");
+            System.out.println("4. 책 제목으로 내림차순 정렬");
+            System.out.print("번호 입력 : ");
+            int inputNum;
+            inputNum = sc.nextInt();
+            sc.nextLine();
+            if (inputNum < 1 || inputNum > 4) {
+                List<BookDTO> list = bm.sortedBookList(inputNum);
+                return list;
+            } else {
+                System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+            }
 
+
+        }
     }
-
-
 }
