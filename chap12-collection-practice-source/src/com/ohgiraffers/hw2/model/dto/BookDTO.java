@@ -1,7 +1,7 @@
 package com.ohgiraffers.hw2.model.dto;
 
 public class BookDTO {
-    private String bNo;
+    private int bNo;
     private int category;
     private String title;
     private String author;
@@ -9,18 +9,18 @@ public class BookDTO {
     public BookDTO() {
     }
 
-    public BookDTO(String bNo, int category, String title, String author) {
+    public BookDTO(int bNo, int category, String title, String author) {
         this.bNo = bNo;
         this.category = category;
         this.title = title;
         this.author = author;
     }
 
-    public String getbNo() {
+    public int getbNo() {
         return bNo;
     }
 
-    public void setbNo(String bNo) {
+    public void setbNo(int bNo) {
         this.bNo = bNo;
     }
 
