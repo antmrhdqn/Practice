@@ -7,13 +7,11 @@ import java.util.List;
 
 public class ProductPrint {
 
-    // * 모든 출력은 System.out.println()을 통해 콘솔에 출력하는 것을 의미합니다.
-    // 주석을 지우고 다음 네 가지 메소드를 작성하세요.
-
     public void printAllProductList(List<ProductDTO> allProductList) {
 
-        // 1. 전체 조회한 목록 출력하는 메소드
-        //    (조건) List<ProductDTO>로 받아온 데이터 목록을 전체 출력하세요.
+        for (ProductDTO product : allProductList) {
+            System.out.println(product);
+        }
 
     }
 
@@ -22,6 +20,7 @@ public class ProductPrint {
         // 2. 조건에 따라 조회한 목록을 출력하는 메소드
         //    (조건 1) SearchCondition 객체로 검색 조건이 무엇인지 출력하세요.
         //    (조건 2) List<ProductDTO>로 받아온 데이터 목록을 전체 출력하세요.
+
 
     }
 
@@ -37,9 +36,12 @@ public class ProductPrint {
         String errorMessage = "";
 
         switch (errorCode) {
-            case "selectList": errorMessage = "전체메뉴 조회에 실패했습니다."; break;
+            case "selectList":
+                errorMessage = "전체메뉴 조회에 실패했습니다.";
+                break;
             case "selectOne":
-                errorMessage = "선택한 메뉴 조회에 실패했습니다."; break;
+                errorMessage = "선택한 메뉴 조회에 실패했습니다.";
+                break;
         }
 
         return errorMessage;
