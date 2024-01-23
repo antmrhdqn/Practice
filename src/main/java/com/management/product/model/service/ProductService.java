@@ -3,6 +3,7 @@ package com.management.product.model.service;
 import com.common.SearchCondition;
 import com.management.product.model.dto.ProductDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,8 @@ public class ProductService {
 
         // 3. 조건에 따른 제품 목록을 조회하는 로직을 작성하세요.
         // 　　아래 작성된 return null은 과제 툴 오류를 제거하고자 임의 작성하였으니 지우고 로직을 작성하세요.
+
+        List<ProductDTO> productList = new ArrayList<>();
         return null;
 
     }
