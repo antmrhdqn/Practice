@@ -10,13 +10,13 @@ public class ProductDTO implements java.io.Serializable {
     private String salesQuantity;
     private String stockQuantity;
     private String categoryCode;
-    private String productInfo;
+    private String production_status;
 
     public ProductDTO() {
     }
 
     public ProductDTO(String productCode, String productName, String originCost, String releaseDate
-            , String discountRate, String salesQuantity, String stockQuantity, String categoryCode, String productInfo) {
+            , String discountRate, String salesQuantity, String stockQuantity, String categoryCode, String production_status) {
         this.productCode = productCode;
         this.productName = productName;
         this.originCost = originCost;
@@ -25,7 +25,7 @@ public class ProductDTO implements java.io.Serializable {
         this.salesQuantity = salesQuantity;
         this.stockQuantity = stockQuantity;
         this.categoryCode = categoryCode;
-        this.productInfo = productInfo;
+        this.production_status = production_status;
     }
 
     public String getProductCode() {
@@ -92,12 +92,12 @@ public class ProductDTO implements java.io.Serializable {
         this.categoryCode = categoryCode;
     }
 
-    public String getProductInfo() {
-        return productInfo;
+    public String getProduction_status() {
+        return production_status;
     }
 
-    public void setProductInfo(String productInfo) {
-        this.productInfo = productInfo;
+    public void setProduction_status(String production_status) {
+        this.production_status = production_status;
     }
 
     @Override
@@ -111,7 +111,7 @@ public class ProductDTO implements java.io.Serializable {
                 ", salesQuantity='" + salesQuantity + '\'' +
                 ", stockQuantity='" + stockQuantity + '\'' +
                 ", categoryCode='" + categoryCode + '\'' +
-                ", productionStatus='" + productInfo + '\'' +
+                ", productionStatus='" + production_status + '\'' +
                 '}';
     }
 }
