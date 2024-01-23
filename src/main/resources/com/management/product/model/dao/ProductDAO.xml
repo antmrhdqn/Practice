@@ -6,9 +6,9 @@
 <mapper namespace="com.management.product.model.dao.ProductDAO">
 
     <resultMap id="productResultMap" type="com.management.product.model.dto.ProductDTO">
-        <id property="code" column="product_code"/>
-        <result property="name" column="product_code"/>
-        <result property="originCode" column="origin_cost"/>
+        <id property="productCode" column="product_code"/>
+        <result property="productName" column="product_name"/>
+        <result property="originCost" column="origin_cost"/>
         <result property="releaseDate" column="release_date"/>
         <result property="discountRate" column="discount_rate"/>
         <result property="salesQuantity" column="sales_quantity"/>
@@ -33,25 +33,28 @@
 
     <!-- 5. 제품 정보를 등록하는 쿼리를 작성하세요.
             (쿼리id) insertProduct -->
-    <select id="insertProduct" resultMap="productResultMap">
-        INSERT INTO product_info ( PRODUCT_CODE
-                                 , PRODUCT_NAME
-                                 , ORIGIN_COST
-                                 , RELEASE_DATE
-                                 , DISCOUNT_RATE
-                                 , SALES_QUANTITY
-                                 , PRODUCTION_STATUS)
+    <insert id="insertProduct" parameterType="com.management.product.model.dto.ProductDTO">
+        INSERT INTO product_info (
+                                   product_name
+                                 , category_code
+                                 , origin_cost
+                                 , release_date
+                                 , discount_rate
+                                 , stock_quantity
+                                 , sales_quantity
+                                 , production_status)
         VALUES (
-                 #{PRODUCT_CODE}
-               , #{PRODUCT_NAME}
-               , #{ORIGIN_COST}
-               , #{RELEASE_DATE}
-               , #{DISCOUNT_RATE}
-               , #{SALES_QUANTITY}
-               , #{PRODUCTION_STATUS}
+                 #{productName}
+               , #{categoryCode}
+               , #{originCost}
+               , #{releaseDate}
+               , #{stockQuantity}
+               , #{discountRate}
+               , #{productionStatus}
+               , #{salesQuantity}
                )
 
-    </select>
+    </insert>
 
     <!-- 6. 사용자가 수정을 원하는 데이터만 수정하도록 Dynamic Query를 활용한 쿼리를 작성하세요.
             (쿼리id) updateProduct -->

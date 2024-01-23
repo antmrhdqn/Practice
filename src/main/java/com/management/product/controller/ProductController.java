@@ -45,9 +45,9 @@ public class ProductController {
         Scanner sc = new Scanner(System.in);
         System.out.print("출시일을 입력하세요 (예시: 0000-00-00)");
         String releaseDate = sc.nextLine();
-        releaseDate.replace("-", "");
+        releaseDate = releaseDate.replace("-", "");
         product.setReleaseDate(releaseDate);
-        product.setProduction_status("Y");
+        product.setProductionStatus("Y");
         product.setSalesQuantity("0");
         Boolean result = productService.registNewProduct(product);
         if (result) {

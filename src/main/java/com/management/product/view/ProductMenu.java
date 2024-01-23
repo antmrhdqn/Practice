@@ -122,7 +122,7 @@ public class ProductMenu {
         String productionStatus = sc.nextLine().toUpperCase();
 
         productDTO.setSalesQuantity(salesQuantity);
-        productDTO.setProduction_status(productionStatus);
+        productDTO.setProductionStatus(productionStatus);
         System.out.println("===================================");
 
         return productDTO;
