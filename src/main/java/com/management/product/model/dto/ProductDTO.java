@@ -10,13 +10,13 @@ public class ProductDTO implements java.io.Serializable {
     private String salesQuantity;
     private String stockQuantity;
     private String categoryCode;
-    private String productInfo;
+    private String productionStatus;
 
     public ProductDTO() {
     }
 
     public ProductDTO(String productCode, String productName, String originCost, String releaseDate
-            , String discountRate, String salesQuantity, String stockQuantity, String categoryCode, String productInfo) {
+            , String discountRate, String salesQuantity, String stockQuantity, String categoryCode, String productionStatus) {
         this.productCode = productCode;
         this.productName = productName;
         this.originCost = originCost;
@@ -25,7 +25,7 @@ public class ProductDTO implements java.io.Serializable {
         this.salesQuantity = salesQuantity;
         this.stockQuantity = stockQuantity;
         this.categoryCode = categoryCode;
-        this.productInfo = productInfo;
+        this.productionStatus = productionStatus;
     }
 
     public String getProductCode() {
@@ -92,12 +92,12 @@ public class ProductDTO implements java.io.Serializable {
         this.categoryCode = categoryCode;
     }
 
-    public String getProductInfo() {
-        return productInfo;
+    public String getProductionStatus() {
+        return productionStatus;
     }
 
-    public void setProductInfo(String productInfo) {
-        this.productInfo = productInfo;
+    public void setProductionStatus(String productionStatus) {
+        this.productionStatus = productionStatus;
     }
 
     @Override
@@ -111,7 +111,7 @@ public class ProductDTO implements java.io.Serializable {
                 ", salesQuantity='" + salesQuantity + '\'' +
                 ", stockQuantity='" + stockQuantity + '\'' +
                 ", categoryCode='" + categoryCode + '\'' +
-                ", productionStatus='" + productInfo + '\'' +
+                ", productionStatus='" + productionStatus + '\'' +
                 '}';
     }
 }
