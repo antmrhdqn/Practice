@@ -6,8 +6,8 @@
 <mapper namespace="com.management.product.model.dao.ProductDAO">
 
     <resultMap id="productResultMap" type="com.management.product.model.dto.ProductDTO">
-        <id property="code" column="product_code"/>
-        <result property="name" column="product_code"/>
+        <id property="productCode" column="product_code"/>
+        <result property="productName" column="product_name"/>
         <result property="originCode" column="origin_cost"/>
         <result property="releaseDate" column="release_date"/>
         <result property="discountRate" column="discount_rate"/>
