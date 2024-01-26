@@ -9,4 +9,6 @@ public interface ProductDAO {
     List<ProductDTO> selectAllProductList();
 
     int insertProduct(ProductDTO product);
+
+    List<ProductDTO> selectProductByCondition();
 }
