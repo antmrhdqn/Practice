@@ -4,7 +4,7 @@
 
     <properties resource="config/connection-info.properties"/>
 
-    <environments default="dec">
+    <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
@@ -17,7 +17,6 @@
     </environments>
 
     <mappers>
-        <package name="com.management.category.model.dao"/>
         <package name="com.management.product.model.dao"/>
     </mappers>
 </configuration>

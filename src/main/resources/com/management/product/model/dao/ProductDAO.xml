@@ -27,10 +27,10 @@
         SELECT *
         FROM product_info
         <where>
-            <if test="option==productName">
+            <if test="option=='productName'">
                 AND product_name LIKE CONCAT ('%', #{value}, '%')
             </if>
-            <if test="option==salesStore">
+            <if test="option=='salesStore'">
                 <if test="value=='백화점'">
                     AND discount_rate = 0
                 </if>
@@ -40,25 +40,77 @@
                     ]]>
                 </if>
             </if>
-            <if test="option==newProduct">
+            <if test="option=='newProduct'">
                 AND release_date LIKE '202305%'
             </if>
-            <if test="option==nonProduction">
+            <if test="option=='nonProduction'">
                 AND production_status = 'Y'
             </if>
         </where>
     </select>
     <!-- 5. 제품 정보를 등록하는 쿼리를 작성하세요.
             (쿼리id) insertProduct -->
-    <select id="insertProduct" resultMap="productResultMap">
-        INSERT INTO product_info
-        ()
-    </select>
+    <insert id="insertProduct" parameterType="com.management.product.model.dto.ProductDTO">
+        INSERT INTO product_info( product_name
+                                , origin_cost
+                                , release_date
+                                , discount_rate
+                                , sales_quantity
+                                , stock_quantity
+                                , category_code
+                                , production_status
+        )
+        VALUES (
+                #{productName}
+               ,#{originCost}
+               ,#{releaseDate}
+               ,#{discountRate}
+               ,#{salesQuantity}
+               ,#{stockQuantity}
+               ,#{categoryCode}
+               ,#{productionStatus}
+               )
+    </insert>
 
     <!-- 6. 사용자가 수정을 원하는 데이터만 수정하도록 Dynamic Query를 활용한 쿼리를 작성하세요.
             (쿼리id) updateProduct -->
+    <update id="updateProduct" parameterType="com.management.product.model.dto.ProductDTO">
+    UPDATE product_info
+    <set>
+        <if test="productName != 'SKIP'">
+            product_name = #{productName},
+        </if>
+        <if test="originCost != 'SKIP'">
+            origin_cost = #{originCost},
+        </if>
+        <if test="releaseDate != 'SKIP'">
+            release_date = #{releaseDate},
+        </if>
+        <if test="discountRate != 'SKIP'">
+            discount_rate = #{discountRate},
+        </if>
+        <if test="salesQuantity != 'SKIP'">
+            sales_quantity = #{salesQuantity},
+        </if>
+        <if test="stockQuantity != 'SKIP'">
+            stock_quantity = #{stockQuantity},
+        </if>
+        <if test="categoryCode != 'SKIP'">
+            category_code = #{categoryCode},
+        </if>
+        <if test="productionStatus != 'SKIP'">
+            production_status = #{productionStatus}
+        </if>
+    </set>
+        WHERE product_code = #{productCode}
+    </update>
+
 
     <!-- 7. 제품 정보를 삭제하는 쿼리를 작성하세요.
             (쿼리id) deleteProduct -->
+    <delete id="deleteProduct" parameterType="com.management.product.model.dto.ProductDTO">
+        DELETE
+        FROM
+    </delete>
 
 </mapper>

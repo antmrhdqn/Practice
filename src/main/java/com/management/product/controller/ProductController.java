@@ -42,10 +42,8 @@ public class ProductController {
     }
 
     public void registNewProduct(ProductDTO product) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("출시일을 입력하세요 (예시: 0000-00-00)");
-        String releaseDate = sc.nextLine();
-        releaseDate = releaseDate.replace("-", "");
+
+        String releaseDate = product.getReleaseDate().replace("-", "");
         product.setReleaseDate(releaseDate);
         product.setProductionStatus("Y");
         product.setSalesQuantity("0");
@@ -59,21 +57,24 @@ public class ProductController {
 
     public void modifyProductInfo(ProductDTO product) {
 
-        // 5. 제품 정보를 수정하는 메소드
-        //    (조건 1) 화면에서 releaseDate를 0000-00-00 형태로 받아옵니다.
-        //            해당 필드에 매핑되는 DB 컬럼 releaseDate가 8byte이므로 '-' 문자를 제거하여 product객체에 setting 하세요.
-        //　  (조건 2) Service 객체를 호출하여 수정을 수행하고, 결과를 boolean 값으로 return 받으세요.
-        //    (조건 3) update가 정상적으로 수행된 경우, Print 객체를 통해 수정 성공했다는 성공 메세지를 출력하세요.
-        //    (조건 4) update가 정상적으로 수행되지 않은 경우, Print 객체를 통해 수정 실패했다는 오류 메세지를 출력하세요.
-
+        String releaseDate= product.getReleaseDate().replace("-", "");
+        product.setReleaseDate(releaseDate);
+        boolean result = productService.modifyProductInfo(product);
+        if (result) {
+            productPrint.printSuccessMessage("modify");
+        } else {
+            productPrint.printErrorMessage("modify");
+        }
     }
 
     public void deleteProduct(Map<String, String> parameter) {
 
-        // 6. 제품 정보를 삭제하는 메소드
-        //    (조건 1) Service 객체를 호출하여 수정을 수행하고, 결과를 boolean 값으로 return 받으세요.
-        //    (조건 2) delete가 정상적으로 수행된 경우, Print 객체를 통해 삭제 성공했다는 성공 메세지를 출력하세요.
-        //    (조건 3) delete가 정상적으로 수행되지 않은 경우, Print 객체를 통해 삭제 실패했다는 오류 메세지를 출력하세요.
+        boolean result = productService.deleteProduct(parameter);
+        if (result) {
+            productPrint.printSuccessMessage("delete");
+        } else {
+            productPrint.printErrorMessage("delete");
+        }
 
     }
 }

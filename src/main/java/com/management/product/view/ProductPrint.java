@@ -17,13 +17,10 @@ public class ProductPrint {
 
     public void printProductList(List<ProductDTO> productList, SearchCondition searchCondition) {
 
-        System.out.println("검색조건 : " + searchCondition.getOption());
+        System.out.println("검색조건 : " + searchCondition.getValue());
         for (ProductDTO product : productList) {
             System.out.println(product.toString());
         }
-
-
-
     }
 
     public void printSuccessMessage(String successCode) {
@@ -34,9 +31,15 @@ public class ProductPrint {
             case "insert":
                 successMessage = "제품 등록에 성공했습니다.";
                 break;
+            case "modify":
+                successMessage = "제품 정보 수정에 성공했습니다.";
+                break;
+            case " delete" :
+                successMessage = " 제품 삭제에 성공했습니다";
+                break;
         }
-        //    (조건) 성공코드를 전달받아 성공을 알리는 메시지를 출력하세요.
 
+        System.out.println(successMessage);
     }
 
     public String printErrorMessage(String errorCode) {
@@ -50,8 +53,14 @@ public class ProductPrint {
             case "selectOne":
                 errorMessage = "선택한 제품 조회에 실패했습니다.";
                 break;
-            case "insert" :
+            case "insert":
                 errorMessage = "제품 등록에 실패했습니다.";
+                break;
+            case "modify" :
+                errorMessage = "제품 정보 수정에 실패했습니다.";
+                break;
+            case "delete" :
+                errorMessage = "제품 삭제에 실패했습니다.";
                 break;
         }
 

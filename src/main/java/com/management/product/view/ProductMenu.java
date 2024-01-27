@@ -117,7 +117,7 @@ public class ProductMenu {
         getProductInfo(productDTO);
 
         System.out.println("제품의 판매량을 입력해 주세요 : ");
-        String salesQuantity  = sc.nextLine();
+        String salesQuantity  = sc.nextLine().toUpperCase();
         System.out.println("제품의 생산여부를 입력해 주세요(Y:생산중 / H:생산보류 / N:생산중단) : ");
         String productionStatus = sc.nextLine().toUpperCase();
 
@@ -132,17 +132,17 @@ public class ProductMenu {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("제품명을 입력해 주세요 : ");
-        String productName = sc.nextLine();
+        String productName = sc.nextLine().toUpperCase();
         System.out.println("제품의 분류코드를 입력해 주세요 : ");
-        String categoryCode = sc.nextLine();
+        String categoryCode = sc.nextLine().toUpperCase();
         System.out.println("제품의 원가를 입력해 주세요 : ");
-        String originCost = sc.nextLine();
+        String originCost = sc.nextLine().toUpperCase();
         System.out.println("제품의 출시일울 입력해 주세요(2000-01-01 형식) : ");
-        String releaseDate = sc.nextLine();
+        String releaseDate = sc.nextLine().toUpperCase();
         System.out.println("제품의 재고량을 입력해 주세요 : ");
-        String stockQuantity  = sc.nextLine();
+        String stockQuantity  = sc.nextLine().toUpperCase();
         System.out.println("제품의 할인율을 입력해 주세요 : ");
-        String discountRate  = sc.nextLine();
+        String discountRate  = sc.nextLine().toUpperCase();
 
         productDTO.setProductName(productName);
         productDTO.setCategoryCode(categoryCode);
