@@ -34,7 +34,7 @@ public class ProductPrint {
             case "modify":
                 successMessage = "제품 정보 수정에 성공했습니다.";
                 break;
-            case " delete" :
+            case "delete" :
                 successMessage = " 제품 삭제에 성공했습니다";
                 break;
         }

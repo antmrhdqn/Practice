@@ -28,28 +28,27 @@
         FROM product_info
         <where>
             <if test="option=='productName'">
-                AND product_name LIKE CONCAT ('%', #{value}, '%')
+                product_name LIKE CONCAT ('%', #{value}, '%')
             </if>
             <if test="option=='salesStore'">
                 <if test="value=='백화점'">
-                    AND discount_rate = 0
+                    discount_rate = 0
                 </if>
                 <if test="value=='아울렛'">
                     <![CDATA[
-                    AND discount_rate > 0ㅐ
+                    discount_rate > 0ㅐ
                     ]]>
                 </if>
             </if>
             <if test="option=='newProduct'">
-                AND release_date LIKE '202305%'
+                release_date LIKE '202305%'
             </if>
             <if test="option=='nonProduction'">
-                AND production_status = 'Y'
+                production_status = 'Y'
             </if>
         </where>
     </select>
-    <!-- 5. 제품 정보를 등록하는 쿼리를 작성하세요.
-            (쿼리id) insertProduct -->
+
     <insert id="insertProduct" parameterType="com.management.product.model.dto.ProductDTO">
         INSERT INTO product_info( product_name
                                 , origin_cost
@@ -72,8 +71,6 @@
                )
     </insert>
 
-    <!-- 6. 사용자가 수정을 원하는 데이터만 수정하도록 Dynamic Query를 활용한 쿼리를 작성하세요.
-            (쿼리id) updateProduct -->
     <update id="updateProduct" parameterType="com.management.product.model.dto.ProductDTO">
     UPDATE product_info
     <set>
@@ -105,12 +102,9 @@
         WHERE product_code = #{productCode}
     </update>
 
-
-    <!-- 7. 제품 정보를 삭제하는 쿼리를 작성하세요.
-            (쿼리id) deleteProduct -->
     <delete id="deleteProduct" parameterType="com.management.product.model.dto.ProductDTO">
-        DELETE
-        FROM
+        DELETE FROM product_info
+        WHERE product_code = #{productCode}
     </delete>
 
 </mapper>
