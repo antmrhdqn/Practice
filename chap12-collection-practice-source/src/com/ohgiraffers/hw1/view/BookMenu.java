@@ -15,15 +15,20 @@ public class BookMenu {
     }
 
     public void mainMenu() {
-        while (true) {
+        do {
+            System.out.println("*** 도서 관리 프로그램 ***");
             System.out.println("1. 새 도서 추가");
-            System.out.println("2. 도서정보 정렬 후 출력");
+            System.out.println("2. 도서정보 출력");
             System.out.println("3. 도서 삭제");
-            System.out.println("4. 도서 검색 출력");
+            System.out.println("4. 도서 검색출력");
             System.out.println("5. 전체 출력");
             System.out.println("6. 끝내기");
-            int inputNum = sc.nextInt();
-            switch (inputNum) {
+            System.out.print("메뉴 선택 : ");
+
+            int menu = sc.nextInt();
+            BookMenu bookMenu = new BookMenu();
+
+            switch (menu) {
                 case 1:
                     bm.addBook(inputBook());
                     break;
@@ -33,16 +38,27 @@ public class BookMenu {
                 case 3:
                     bm.deleteBook(inputBookNo());
                     break;
-//                case 4:
-//                    bm.searchBook(inputBookTitle());
-//                    break;
+                case 4:
+                    bm.searchBook(inputBookTitle());
+                    break;
                 case 5:
                     bm.displayAll();
                     break;
                 case 6:
-                    return;
+                    System.out.print("정말 끝내시겠습니까? (y/n) : ");
+                    char answer = sc.next().toUpperCase().charAt(0);
+
+                    if (answer == 'Y') {
+                        System.out.println("프로그램을 종료합니다.");
+                        return;
+                    } else System.out.println("메뉴를 다시 불러옵니다.");
+
+                    break;
+
+                default:
+                    System.out.println("잘못 입력하셨습니다."); break;
             }
-        }
+        } while (true);
     }
 
     public BookDTO inputBook() {
@@ -84,8 +100,6 @@ public class BookMenu {
             } else {
                 System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
             }
-
-
         }
     }
 }

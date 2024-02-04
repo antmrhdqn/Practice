@@ -24,14 +24,14 @@ public class BookManager {
         bookList.remove(index);
     }
 
-//    public String searchBook(String title) {
-//        for (BookDTO check : bookList) {
-//            if (check.getTitle().equals(title)) {
-//                return check.toString();
-//            }
-//            System.out.println("조회된 도서가 목록에 없습니다.");
-//        }
-//    }
+    public void searchBook(String title) {
+        for (BookDTO check : bookList) {
+            if (check.getTitle().equals(title)) {
+                System.out.println(check.toString());
+            }
+            System.out.println("조회된 도서가 목록에 없습니다.");
+        }
+    }
 
     public void displayAll() {
         for (BookDTO book : bookList) {
