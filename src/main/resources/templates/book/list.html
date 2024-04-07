@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>책번호</th>
+            <th>책이름</th>
+            <th>작가</th>
+            <th>출판사</th>
+            <th>출판일</th>
+            <th>대여가능 여부</th>
+            <th>카테고리</th>
+        </tr>
+        <tr th:each="book : ${ bookList }">
+            <th th:text="${ book.bookNo }"></th>
+            <th th:text="${ book.bookTitle }"></th>
+            <th th:text="${ book.author }"></th>
+            <th th:text="${ book.publisher }"></th>
+            <th th:text="${ book.publishedDate }"></th>
+            <th th:text="${ book.borrowableStatus }"></th>
+            <th th:text="${ book.categoryDTO.categoryCode }"></th>
+            <th th:text="${ book.categoryDTO.categoryName }"></th>
+        </tr>
+    </table>
+
+    <div id="paging">
+        <button th:onclick="'location.href=\'/book/list?page=' + ${ paging.startPage } + '\''">
+            ⏪
+        </button>
+
+        <button th:onclick="'location.href=\'/book/list?page=' + ${ paging.currentPage - 1 } + '\''"
+                th:disabled="${ bookList.first }">
+            ◀
+        </button>
+
+        <th:block th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage) }">
+            <button th:onclick="'location.href=\'/book/list?page=' + ${ page } + '\''"
+                    th:text="${ page }"
+                    th:disabled="${ paging.currentPage eq page }">
+            </button>
+        </th:block>
+
+        <button th:onclick="'location.href=\'/book/list?page=' + ${ paging.currentPage + 1 } + '\''"
+                th:disabled="${ bookList.last }">
+            ▶
+        </button>
+
+        <button th:onclick="'location.href=\'/book/list?page=' + ${ paging.endPage } + '\''">
+            ⏩
+        </button>
+    </div>
+</body>
+</html>
