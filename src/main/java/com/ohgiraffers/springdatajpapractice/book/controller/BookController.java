@@ -11,10 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -82,4 +79,28 @@ public class BookController {
         bookService.modifyBook(modifyBook);
         return "redirect:/book/list";
     }
+
+    @PostMapping("/detail")
+    public String detail(@RequestParam int bookNo, Model model) {
+        BookDTO book = bookService.findBookByBookNo(bookNo);
+
+        System.out.println(book);
+
+        model.addAttribute("book", book);
+        return "book/detail";
+    }
+
+    @PostMapping("/category/detail")
+    public String categoryDetail(@RequestParam("categoryCode") int categoryCode, Model model) {
+        BookDTO book = bookService.findBookByCategoryCode(categoryCode);
+        model.addAttribute("book", book);
+        return "/book/category";
+    }
+
+    @GetMapping(value = "/category", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public List<CategoryDTO> findCategoryList() {
+        return bookService.findAllCategory();
+    }
+
 }

@@ -11,8 +11,34 @@
     <button onclick="location.href='/book/list'">전체 책 목록 조회</button>
     <button onclick="location.href='/book/delete'">책 폐기</button>
     <button onclick="location.href='/book/modify'">책 정보 수정</button>
-    <button onclick="location.href=''"></button>
-    <button onclick="location.href=''"></button>
-    <button onclick="location.href=''"></button>
+
+    <form action="/book/detail" method="post">
+        <label>조회하실 책 번호를 입력하세요: </label>
+        <input type="number" name="bookNo">
+        <button>단일 책 조회</button>
+    </form>
+
+    <form action="/book/category/detail" method="post">
+        <label>조회하실 카테고리를 선택하세요: </label>
+        <select name="categoryCode" id="categoryCode"></select>
+
+        <button>카테고리코드로 단일 책 조회</button>
+    </form>
+
+    <script>
+        fetch('/book/category')
+            .then(res => res.json())
+            .then(data => {
+                const $categoryCode = document.getElementById('categoryCode');
+
+                for(let index in data) {
+                    const $option = document.createElement('option');
+                    $option.value = data[index].categoryCode;
+                    $option.textContent = data[index].categoryName;
+
+                    $categoryCode.appendChild($option);
+                }
+            });
+    </script>
 </body>
 </html>

@@ -13,7 +13,8 @@
             <th>출판사</th>
             <th>출판일</th>
             <th>대여가능 여부</th>
-            <th>카테고리</th>
+            <th>카테고리 번호</th>
+            <th>카테고리 이름</th>
         </tr>
         <tr th:each="book : ${ bookList }">
             <th th:text="${ book.bookNo }"></th>

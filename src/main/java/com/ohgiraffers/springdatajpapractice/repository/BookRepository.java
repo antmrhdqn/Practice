@@ -11,4 +11,7 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
 
     @Query("SELECT b FROM Book b JOIN FETCH b.category")
     Page<Book> findBookList(Pageable pageable);
+
+    @Query("SELECT b FROM Book b WHERE b.category.categoryCode = :categoryCode")
+    Book findByCategoryCode(int categoryCode);
 }

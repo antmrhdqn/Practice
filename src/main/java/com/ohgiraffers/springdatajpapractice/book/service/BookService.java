@@ -81,5 +81,28 @@ public class BookService {
 
         foundBook = foundBook.bookTitle(modifyBook.getBookTitle()).builder();
     }
+
+    // 책 상세 조회
+    public BookDTO findBookByBookNo(int bookNo) {
+        Book book = bookRepository.findById(bookNo).orElseThrow(IllegalArgumentException::new);
+        BookDTO bookDTO = modelMapper.map(book, BookDTO.class);
+        bookDTO.setCategoryDTO(book.getCategory());
+        return bookDTO;
+    }
+
+    public List<CategoryDTO> findAllCategory() {
+        List<Category> categoryList = categoryRepository.findAllCategory();
+
+        return categoryList.stream()
+                .map(category -> modelMapper.map(category, CategoryDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    public BookDTO findBookByCategoryCode(int categoryCode) {
+        Book book = bookRepository.findByCategoryCode(categoryCode);
+        BookDTO bookDTO = modelMapper.map(book, BookDTO.class);
+        bookDTO.setCategoryDTO(book.getCategory());
+        return bookDTO;
+    }
 }
 
