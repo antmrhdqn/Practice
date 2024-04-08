@@ -61,10 +61,13 @@ public class BookService {
 
         Page<BookDTO> bookDTOList = bookList.map(book -> modelMapper.map(book, BookDTO.class));
 
-        for (Book book : bookList) {
-            bookDTOList.forEach(bookDTO -> bookDTO.setCategoryDTO(book.getCategory()));
-        }
+//        for (Book book : bookList) {
+//            bookDTOList.forEach(bookDTO -> bookDTO.setCategoryDTO(book.getCategory()));
+//        }
 
+        for (int i = 0; i < bookDTOList.getSize(); i++) {
+            bookDTOList.getContent().get(i).setCategoryDTO(bookList.getContent().get(i).getCategory());
+        }
         return bookDTOList;
     }
 
