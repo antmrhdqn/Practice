@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selected menu</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>책번호</th>
+        <th>책이름</th>
+        <th>작가</th>
+        <th>출판사</th>
+        <th>출판일</th>
+        <th>대여가능 여부</th>
+        <th>카테고리 번호</th>
+        <th>카테고리 이름</th>
+    </tr>
+    <tr>
+        <th th:text="${ book.bookNo }"></th>
+        <th th:text="${ book.bookTitle }"></th>
+        <th th:text="${ book.author }"></th>
+        <th th:text="${ book.publisher }"></th>
+        <th th:text="${ book.publishedDate }"></th>
+        <th th:text="${ book.borrowableStatus }"></th>
+        <th th:text="${ book.categoryDTO.categoryCode }"></th>
+        <th th:text="${ book.categoryDTO.categoryName }"></th>
+    </tr>
+</table>
+</body>
+</html>
