@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="|${session.nickname} 님의 주문 확인서|"></h1>
+<h3 th:text="|주문 상품명 : ${order.getProductName()}|"></h3>
+<h3 th:text="|주문 수량 : ${order.getAmount()}|"></h3>
+<h3 th:text="|주문자 : ${order.name}|"></h3>
+<h3 th:text="|배송 주소 : ${order.address}|"></h3>
+<h3 th:text="|연락처 : ${order.getProductName()}|"></h3>
+<h3 th:text="|주문일 : ${ order.orderDate }|"></h3>
+
+</body>
+</html>
