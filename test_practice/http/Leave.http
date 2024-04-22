@@ -1,0 +1,43 @@
+### 나의 휴가 내역 조회
+GET http://localhost:8080/leavesubmit?memberId=20240410-12312&page=0
+Content-Type: application/json
+Accept: */*
+
+### 휴가 신청
+POST http://localhost:8080/leavesubmit
+Content-Type: application/json
+Accept: */*
+
+{
+  "memberId": "20240410-12312",
+  "leaveSubStartDate": "2024-04-29",
+  "leaveSubEndDate": "2024-04-30",
+  "leaveSubApplyDate": "2024-04-21",
+  "leaveSubType": "연차"
+}
+
+
+### 휴가 신청 취소
+
+
+### 휴가 취소 요청
+
+
+### 발생 내역 조회
+
+
+### 휴가 발생
+
+
+### 휴가 신청 내역 조회
+
+
+### 상세 조회
+
+
+### 휴가 신청 처리
+
+
+### 휴가 보유 내역 조회
+
+
